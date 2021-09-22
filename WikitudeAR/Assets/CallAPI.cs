@@ -14,7 +14,6 @@ public class CallAPI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(LoadAPI());
         HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api-totalpower.herokuapp.com/");
         HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
@@ -25,10 +24,5 @@ public class CallAPI : MonoBehaviour
 
         string[] splitArray = json.Split(char.Parse(":"));
         user.text = splitArray[1];
-    }
-
-    IEnumerator LoadAPI()
-    {
-        yield return new WaitForSeconds(1);
     }
 }
